@@ -51,6 +51,7 @@ void setup(void){
 
   tft.setCursor(0,0);
 
+  //TODO: make less brute forced
  
   CreateItem("CPU",0);
   CreateItem("RAM",32);
@@ -59,6 +60,8 @@ void setup(void){
 
 
 }
+
+//TODO: make this system smarter
 
 void UpdateItem(float ItemPercent, int PosY){
   unsigned long Color = 0xFFFF;
@@ -75,6 +78,7 @@ void UpdateItem(float ItemPercent, int PosY){
   tft.fillRoundRect(0, PosY+BarDistanceDown, int(1.28*ItemPercent), BarThickness, BarRoundedThickness , Color);
 }
 
+//TODO: make values less fixed in place
 void loop() {
   while (Serial.available() == 0) {}
   String input = Serial.readString();
@@ -99,6 +103,7 @@ void loop() {
     }
   }
 
+  //TODO: shouldnt be repeated
   float GpuUsage = DataOutput[0];
   float GpuVramUsed = DataOutput[1];
   float GpuVram = DataOutput[2];
@@ -107,7 +112,8 @@ void loop() {
   float TotalRam = DataOutput[5];
   float RamPercentage = (UsedRam / TotalRam) * 100;
   float VramPercentage = (GpuVramUsed / GpuVram) * 100;
-  
+
+  //TODO: should be less fixed of a system
   UpdateItem(CpuUsage,0);
   UpdateItem(RamPercentage,32);
   UpdateItem(GpuUsage,64);

@@ -34,7 +34,7 @@ while True:
             CPU_USAGE = psutil.cpu_percent(0.1)
 
 
-
+             
 
             #ram
             Memory = psutil.virtual_memory()
